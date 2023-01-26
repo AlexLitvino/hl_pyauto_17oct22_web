@@ -61,7 +61,9 @@ class LoginPage(BasePage):
 
     def perform_successful_login(self, username, password):
         self._fill_login_form_and_click_login_button(username, password)
-        return InventoryPage(self.driver)
+        inventory_page = InventoryPage(self.driver)
+        inventory_page.is_page_displayed()
+        return inventory_page
 
     def perform_unsuccessful_login(self, username, password):
         self._fill_login_form_and_click_login_button(username, password)
